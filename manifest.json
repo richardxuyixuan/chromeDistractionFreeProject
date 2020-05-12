@@ -1,18 +1,23 @@
 {
+  "manifest_version": 2,
   "name": "Distraction Free",
   "version": "1.0",
-  "manifest_version": 2,
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
-    }
-  ],
+  "description": "This extension filters out websites unrelated to the subjects of your study, and prohibits you from visiting these websites during a user-determined time period.",
+  "icons":{
+    "64" : "icon.png",
+    "16" : "icon.png"
+  },
   "browser_action": {
-    "default_title": "Distraction Free"
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
   },
   "background": {
-    "scripts": ["background.js"]
+  "scripts": ["background.js"]
   },
-  "permissions": ["tabs"]
+  "content_scripts": [
+    {
+      "matches": ["http://*/*","https://*/*"],
+      "js": ["myScript.js"]
+    }
+  ]
 }

@@ -1,13 +1,6 @@
-window.studyWords = {}
-//"window." makes studyWords an object that can be called in popup.js
-
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-// listen to the message and populate this hash
-  window.studyWords[request.url] = request.count
-})
-
-chrome.browserAction.onClicked.addListener(function (tab) {
-// when the extension is clicked
-  chrome.tabs.create({url: 'popup.html'})
-// add a new tab
-})
+chrome.runtime.onMessage.addListener(function(response, sender, sendResponse) {
+  alert(response) // alert means displays with alert box
+}); // receive the message from sender, make it as a function with 3 arguments
+// response holds the response sent from the content script
+// sender holds the information about the tab that is sending information to background script
+// sendResponse sends back the response to the content script
