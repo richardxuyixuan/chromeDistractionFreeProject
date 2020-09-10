@@ -1,30 +1,37 @@
 {
-  "manifest_version": 2,
-  "name": "Distraction Free",
+  "name": "DistractionFree",
   "version": "1.0",
+  "manifest_version": 2,
+
   "description": "This extension filters out websites unrelated to the subjects of your study, and prohibits you from visiting these websites during a user-determined time period.",
-  "icons":{
-    "64" : "icon.png",
-    "16" : "icon.png"
+  "icons": {
+    "16": "img/16.png",
+    "32": "img/32.png",
+    "48": "img/48.png",
+    "128": "img/128.png"
   },
-  "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
-  },
+
   "background": {
-  "scripts": ["background.js"]
+    "scripts": ["background.js"]
   },
+
   "content_scripts": [
     {
       "matches": ["http://*/*","https://*/*"],
-      "js": ["jquery.js","myScript.js"]
+      "js": ["myScript.js"]
     }
   ],
-  "permissions":[
-    "<all_urls>","contextMenus","notifications"
-  ],
-  "chrome_url_overrides":{
-    "newtab" : "newtab.html"
+
+  "browser_action": {
+    "default_icon": "img/hourglass.png",
+    "default_popup": "popup.html"
   },
-  "content_security_policy":"script-src 'self' 'unsafe-eval' https://www.redditstatic.com; object-src 'self'"
+
+  "permissions": [
+    "notifications","https://us-central1-extension-1234.cloudfunctions.net/yesorno?"
+  ],
+
+  "web_accessible_resources": [
+    "img/48.png"
+  ]
 }

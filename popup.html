@@ -1,12 +1,81 @@
 <!DOCTYPE html>
-<script src="richNotif.js"></script>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Getting Started Extenion's Popup</title>
-    <script src="popup.js"></script>
-  </head>
-  <body>
-    Hello World!
-  </body>
+<html lang="en">
+
+<head>
+<script src="popup.js"></script>
+<link href="lib/bootstrap.min.css" rel="stylesheet" media="screen">
+
+<style>
+body {min-width: 240px;}
+#display, #settings {margin-top: 4px;}
+#modify {margin-bottom: 4px;}
+</style>
+
+</head>
+
+
+<body>
+<div class="container-fluid">
+
+    <div id="display" class="row-fluid">
+        <div class="span12">
+            <div class="progress progress-striped active progress-success progress-large">
+                <div class="bar" id="bar" style="width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modify" class="row-fluid">
+        <div class="span12">
+            <button id="cancel" class="offset1 btn btn-danger"><i class="icon-stop icon-white"></i></button>
+            <button id="resume" class="offset1 btn btn-success"><i class="icon-play icon-white"></i></button>
+            <button id="pause" class="offset1 btn btn-warning"><i class="icon-pause icon-white"></i></button>
+            <button id="restart" class="offset1 btn"><i class="icon-repeat"></i></button>
+        </div>
+    </div>
+
+    <div id="settings" class="row-fluid">
+        <div class="span12">
+            <form class="well" name="choices">
+                <div class="form-group">
+                  <label for="focusTime">Focus duration (minutes)</label>
+                  <select class="form-control"id="focusTime">
+                    <option>5</option>
+                    <option>25</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="breakTime">Break duration (minutes)</label>
+                  <select class="form-control"id="breakTime">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="rep">Number of cycle(s)</label>
+                  <select class="form-control"id="rep">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+
+                <div>&nbsp;</div>
+
+                <button type="button" id="start" class="btn btn-success"><i class="icon-play icon-white"></i> Start</button>
+                <div id="swapper" style="float: right"><a href="#" id="wrench" class="btn"><i class="icon-wrench"></i> Setting</a></div>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
 </html>
